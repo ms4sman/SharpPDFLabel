@@ -1,5 +1,4 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using SharpPDFLabel.Labels.A4Labels.Avery;
 using System.IO;
 
@@ -13,8 +12,9 @@ namespace SharpPDFLabel.Tests
         {
 
             var labelDefinition = new L7654();
-            var labelCreator = new SingleSheetLabelCreator(labelDefinition);
-            labelCreator.IncludeLabelBorders = true;
+            var labelCreator = new SingleSheetLabelCreator(labelDefinition) {
+                IncludeLabelBorders = true
+            };
             labelCreator.AddText("WEBBERFUL!", "Verdana", 12, embedFont: true);
             labelCreator.AddText("Wonderful Web Works", "Verdana", 12, embedFont: true);
 
@@ -22,7 +22,7 @@ namespace SharpPDFLabel.Tests
             var pdfStream = labelCreator.CreatePDF();
             var pdfName = "pdf7654.pdf";
 
-            var fileStream = File.Create(@".\"+pdfName);
+            var fileStream = File.Create(@".\" + pdfName);
             pdfStream.CopyTo(fileStream);
             fileStream.Close();
             pdfStream.Close();

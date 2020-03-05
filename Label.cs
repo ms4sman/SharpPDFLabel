@@ -1,10 +1,7 @@
 ﻿using iTextSharp.text;
 using iTextSharp.text.pdf;
-using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
 
 namespace SharpPDFLabel
 {
@@ -34,22 +31,21 @@ namespace SharpPDFLabel
             // Create a new Phrase and add the image to it
             var cellContent = new Phrase();
 
-            foreach (var img in _images)
-            {
+            foreach (var img in _images) {
                 var pdfImg = iTextSharp.text.Image.GetInstance(img);
                 cellContent.Add(new Chunk(pdfImg, 0, 0));
             }
 
-            foreach (var txt in _textChunks)
-            {
+            foreach (var txt in _textChunks) {
                 var font = FontFactory.GetFont(txt.FontName, BaseFont.CP1250, txt.EmbedFont, txt.FontSize, txt.FontStyle);
                 cellContent.Add(new Chunk("\n" + txt.Text, font));
             }
 
             //Create a new cell specifying the content
-            var cell = new PdfPCell(cellContent);
-            cell.HorizontalAlignment = (int)_hAlign;
-            cell.VerticalAlignment = Element.ALIGN_TOP;
+            var cell = new PdfPCell(cellContent) {
+                HorizontalAlignment = (int)_hAlign,
+                VerticalAlignment = Element.ALIGN_TOP
+            };
 
             return cell;
         }
@@ -70,6 +66,9 @@ namespace SharpPDFLabel
         /// <param name="img"></param>
         public void AddImage(Stream img)
         {
+            var mem = new MemoryStream();
+            CopyStream(img, mem);
+            _images.Add(mem.GetBuffer());
         }
         /// <summary>
         /// Add a chunk of text to the labels
@@ -82,10 +81,8 @@ namespace SharpPDFLabel
         public void AddText(string text, string fontName, int fontSize, bool embedFont = false, params Enums.FontStyle[] fontStyles)
         {
             int fontStyle = 0;
-            if (fontStyles != null)
-            {
-                foreach (var item in fontStyles)
-                {
+            if (fontStyles != null) {
+                foreach (var item in fontStyles) {
                     fontStyle += (int)item;
                 }
             }
