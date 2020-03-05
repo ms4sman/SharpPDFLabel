@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace SharpPDFLabel.Labels.A4Labels.Avery
+﻿namespace SharpPDFLabel.Labels.A4Labels.Avery
 {
     public class L5160 : LabelDefinition
     {

@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace SharpPDFLabel.Labels.A4Labels.Avery
+﻿namespace SharpPDFLabel.Labels.A4Labels.Avery
 {
     /// <summary>
     /// Dimensions: 63.5mm x 38.1mm 
@@ -18,7 +13,7 @@ namespace SharpPDFLabel.Labels.A4Labels.Avery
             _Height = 38.1;
             _HorizontalGapWidth = 2.5;
             _VerticalGapHeight = 0;
-            
+
             _PageMarginTop = 15.1;
             _PageMarginBottom = 15.1;
             _PageMarginLeft = 7.2;

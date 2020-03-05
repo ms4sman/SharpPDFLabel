@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace SharpPDFLabel
+﻿namespace SharpPDFLabel
 {
     /// <summary>
     /// The base class for a Label, all the actual label definition classes derive from this
@@ -17,7 +12,7 @@ namespace SharpPDFLabel
         protected double _Width;
         public float Width
         {
-            get { return mmToPoint(_Width); }
+            get { return MillimeterToPoint(_Width); }
         }
 
         /// <summary>
@@ -26,7 +21,7 @@ namespace SharpPDFLabel
         protected double _Height;
         public float Height
         {
-            get { return mmToPoint(_Height); }
+            get { return MillimeterToPoint(_Height); }
         }
 
         /// <summary>
@@ -35,7 +30,7 @@ namespace SharpPDFLabel
         protected double _HorizontalGapWidth;
         public float HorizontalGapWidth
         {
-            get { return mmToPoint(_HorizontalGapWidth); }
+            get { return MillimeterToPoint(_HorizontalGapWidth); }
         }
 
         /// <summary>
@@ -44,7 +39,7 @@ namespace SharpPDFLabel
         protected double _VerticalGapHeight;
         public float VerticalGapHeight
         {
-            get { return mmToPoint(_VerticalGapHeight); }
+            get { return MillimeterToPoint(_VerticalGapHeight); }
         }
 
         /// <summary>
@@ -53,7 +48,7 @@ namespace SharpPDFLabel
         protected double _PageMarginLeft;
         public float PageMarginLeft
         {
-            get { return mmToPoint(_PageMarginLeft); }
+            get { return MillimeterToPoint(_PageMarginLeft); }
         }
 
         /// <summary>
@@ -62,7 +57,7 @@ namespace SharpPDFLabel
         protected double _PageMarginRight;
         public float PageMarginRight
         {
-            get { return mmToPoint(_PageMarginRight); }
+            get { return MillimeterToPoint(_PageMarginRight); }
         }
 
         /// <summary>
@@ -71,7 +66,7 @@ namespace SharpPDFLabel
         protected double _PageMarginTop;
         public float PageMarginTop
         {
-            get { return mmToPoint(_PageMarginTop); }
+            get { return MillimeterToPoint(_PageMarginTop); }
         }
 
         /// <summary>
@@ -80,23 +75,23 @@ namespace SharpPDFLabel
         protected double _PageMarginBottom;
         public float PageMarginBottom
         {
-            get { return mmToPoint(_PageMarginBottom); }
+            get { return MillimeterToPoint(_PageMarginBottom); }
         }
 
         /* page definitions */
-        
+
         /// <summary>
         /// The paper size
         /// </summary>
         public Enums.PageSize PageSize { get; set; }
-        
-        
+
+
         /// <summary>
         /// The number of labels running across the page
         /// </summary>
         public int LabelsPerRow { get; set; }
-        
-        
+
+
         /// <summary>
         /// The number of labels running down the page
         /// </summary>
@@ -108,7 +103,7 @@ namespace SharpPDFLabel
         /// </summary>
         /// <param name="mm">Millimetres to convert</param>
         /// <returns>millimetres converted to points represented by a float</returns>
-        private float mmToPoint(double mm)
+        private float MillimeterToPoint(double mm)
         {
             return (float)((mm / 25.4) * 72);
         }

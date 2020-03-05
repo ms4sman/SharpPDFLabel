@@ -1,5 +1,4 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using SharpPDFLabel.Labels.A4Labels.Avery;
 using System.IO;
 
@@ -13,11 +12,11 @@ namespace SharpPDFLabel.Tests
         {
 
             var labelDefinition = new L5160();
-            var labelCreator = new SharpPDFLabel.CustomLabelCreator(labelDefinition);
-            labelCreator.IncludeLabelBorders = true;
+            var labelCreator = new CustomLabelCreator(labelDefinition) {
+                IncludeLabelBorders = true
+            };
 
-            for (var i = 1; i <= 30; i++)
-            {
+            for (var i = 1; i <= 30; i++) {
                 var label = new Label(Enums.Alignment.LEFT);
                 label.AddText("Person Name " + i.ToString(), "Verdana", 12, embedFont: true);
                 label.AddText("Address one for " + i.ToString(), "Verdana", 12, embedFont: true);

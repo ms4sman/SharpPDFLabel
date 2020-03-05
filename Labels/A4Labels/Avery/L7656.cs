@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace SharpPDFLabel.Labels.A4Labels.Avery
+﻿namespace SharpPDFLabel.Labels.A4Labels.Avery
 {
     /// <summary>
     /// Dimensions: 46mm x 11.1mm 
@@ -11,7 +6,7 @@ namespace SharpPDFLabel.Labels.A4Labels.Avery
     /// Inkjet code: J8657
     /// </summary>
     public class L7656 : LabelDefinition
-    {        
+    {
         public L7656()
         {
             _Width = 46;
