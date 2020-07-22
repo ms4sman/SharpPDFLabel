@@ -34,10 +34,8 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="itextsharp, Version=5.5.13.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>packages\iTextSharp.5.5.13\lib\itextsharp.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="itextsharp, Version=5.5.13.1, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>packages\iTextSharp.5.5.13.1\lib\itextsharp.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -53,7 +51,7 @@
     <Compile Include="CustomLabelCreator.cs" />
     <Compile Include="Enums.cs" />
     <Compile Include="LabelDefinition.cs" />
-    <Compile Include="Labels\A4Labels\Avery\P94101.cs" />
+    <Compile Include="Labels\LetterLabels\Presta\P94101.cs" />
     <Compile Include="Labels\A4Labels\Avery\L5160.cs" />
     <Compile Include="SingleSheetLabelCreator.cs" />
     <Compile Include="Labels\A4Labels\Avery\L7160.cs" />
@@ -73,6 +71,7 @@
     <Content Include="packages\iTextSharp.5.5.7\lib\iTextSharp.xml" />
     <Content Include="packages\iTextSharp.5.5.7\notice.txt" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

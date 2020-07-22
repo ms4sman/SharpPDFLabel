@@ -31,20 +31,23 @@ namespace SharpPDFLabel
             // Create a new Phrase and add the image to it
             var cellContent = new Phrase();
 
-            foreach (var img in _images) {
+            foreach (var img in _images)
+            {
                 var pdfImg = iTextSharp.text.Image.GetInstance(img);
                 cellContent.Add(new Chunk(pdfImg, 0, 0));
             }
 
-            foreach (var txt in _textChunks) {
+            foreach (var txt in _textChunks)
+            {
                 var font = FontFactory.GetFont(txt.FontName, BaseFont.CP1250, txt.EmbedFont, txt.FontSize, txt.FontStyle);
                 cellContent.Add(new Chunk("\n" + txt.Text, font));
             }
 
             //Create a new cell specifying the content
-            var cell = new PdfPCell(cellContent) {
+            var cell = new PdfPCell(cellContent)
+            {
                 HorizontalAlignment = (int)_hAlign,
-                VerticalAlignment = Element.ALIGN_TOP
+                VerticalAlignment = Element.ALIGN_BOTTOM //TODO was ALIGN_TOP and this works fine for text, but Images don't line up without ALIGN_BOTTOM
             };
 
             return cell;
@@ -81,8 +84,10 @@ namespace SharpPDFLabel
         public void AddText(string text, string fontName, int fontSize, bool embedFont = false, params Enums.FontStyle[] fontStyles)
         {
             int fontStyle = 0;
-            if (fontStyles != null) {
-                foreach (var item in fontStyles) {
+            if (fontStyles != null)
+            {
+                foreach (var item in fontStyles)
+                {
                     fontStyle += (int)item;
                 }
             }
